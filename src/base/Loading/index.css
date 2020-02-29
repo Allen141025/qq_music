@@ -1,0 +1,12 @@
+.loading{
+  width: 100%;
+  min-height: 250px;
+  line-height: 200px;
+  text-align: center;
+  vertical-align: middle;
+}
+.loading .desc{
+  line-height: 20px;
+  font-size: 12px;
+  color: #333;
+}
