@@ -31,10 +31,10 @@
 }
 .ph_img span {
   position: absolute;
-  left: 5px;
-  bottom: 7px;
+  left: .066667rem /* 5/75 */;
+  bottom: .093333rem /* 7/75 */;
   color: white;
-  font-size: 24px;
+  font-size: .32rem /* 24/75 */;
   opacity: 0.6;
 }
 .icon-you {

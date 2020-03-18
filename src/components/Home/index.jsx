@@ -1,13 +1,13 @@
-import React from 'react'
-import {NavLink,Route,Switch,Redirect} from 'react-router-dom';
-import Recommend from './Recommend';
-import Rank from './Rank';
-import Search from './Search';
-import './index.css';
+import React from "react";
+import { NavLink, Route, Switch, Redirect } from "react-router-dom";
+import Recommend from "./Recommend";
+import Rank from "./Rank";
+import Search from "./Search";
+import "./index.css";
 class Home extends React.Component {
   constructor(props) {
-    super(props)
-    this.state = {}
+    super(props);
+    this.state = {};
   }
   render() {
     return (
@@ -28,16 +28,22 @@ class Home extends React.Component {
         <div className="conBox">
           {/* <!-- 导航区 --> */}
           <p className="nav">
-            <NavLink to="/recommend" activeClassName="select">推荐</NavLink>
-            <NavLink to="/rank" activeClassName="select">排行榜</NavLink>
-            <NavLink to="/search" activeClassName="select">搜索</NavLink>
+            <NavLink to="/recommend" activeClassName="select">
+              推荐
+            </NavLink>
+            <NavLink to="/rank" activeClassName="select">
+              排行榜
+            </NavLink>
+            <NavLink to="/search" activeClassName="select">
+              搜索
+            </NavLink>
           </p>
           {/* <!-- 路由显示区域 --> */}
           <Switch>
             <Route path="/recommend" component={Recommend} />
             <Route path="/rank" component={Rank} />
             <Route path="/search" component={Search} />
-            <Redirect to="/recommend"/>
+            <Redirect to="/recommend" />
           </Switch>
         </div>
         {/* <!-- 尾部 --> */}
@@ -45,7 +51,7 @@ class Home extends React.Component {
           <a href="http://www.qq.com">安装QQ音乐，发现更多精彩</a>
         </div>
       </div>
-    )
+    );
   }
 }
-export default Home
+export default Home;

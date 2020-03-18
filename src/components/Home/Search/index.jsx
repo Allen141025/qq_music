@@ -161,8 +161,7 @@ class Search extends React.Component {
                       this.props.delHistory(key);
                     }}
                   >
-                    X
-                    {/* <Icon type="cross" size="lg" /> */}
+                    X{/* <Icon type="cross" size="lg" /> */}
                   </span>
                 </p>
               ))}

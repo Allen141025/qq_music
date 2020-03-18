@@ -11,7 +11,7 @@ body {
   background-color: #fff;
   -webkit-font-feature-settings: 'tnum';
   font-feature-settings: 'tnum';
-  touch-action: none;
+  /* touch-action: none; */
 }
 img {
   vertical-align: middle;

@@ -1,14 +1,14 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import {Link} from 'react-router-dom';
-import './index.css'
-import Swiper from '../../../base/Swiper'
-import Loading from '../../../base/Loading'
+import React from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import "./index.css";
+import Swiper from "../../../base/Swiper";
+import Loading from "../../../base/Loading";
 import {
   getRecommend,
   getDJBanner,
   getPlayList
-} from '../../../store/recommend.redux'
+} from "../../../store/recommend.redux";
 
 @connect(
   state => ({
@@ -24,13 +24,13 @@ import {
 )
 class Recommend extends React.Component {
   constructor(props) {
-    super(props)
-    this.state = {}
+    super(props);
+    this.state = {};
   }
   componentDidMount() {
-    this.props.getRecommend() //调用常规轮播图
-    this.props.getDJBanner() //DJ轮播图
-    this.props.getPlayList() //精品歌单
+    this.props.getRecommend(); //调用常规轮播图
+    this.props.getDJBanner(); //DJ轮播图
+    this.props.getPlayList(); //精品歌单
   }
   render() {
     return (
@@ -38,9 +38,11 @@ class Recommend extends React.Component {
         {/* <Loading title="请稍后"></Loading> */}
         {/* <!-- 轮播图 --> */}
         <div className="banner">
-          {
-            this.props.banners.length>0?<Swiper banners={this.props.banners}></Swiper>:<Loading title="请稍后"></Loading>
-          }
+          {this.props.banners.length > 0 ? (
+            <Swiper banners={this.props.banners}></Swiper>
+          ) : (
+            <Loading title="请稍后"></Loading>
+          )}
         </div>
         {/* // <!-- 电台 --> */}
         <div className="station">
@@ -95,7 +97,7 @@ class Recommend extends React.Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
-export default Recommend
+export default Recommend;

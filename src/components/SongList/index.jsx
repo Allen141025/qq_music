@@ -1,10 +1,10 @@
-import React from 'react'
-import './index.css'
-import { loadSongList } from '../../store/songList.redux'
-import { connect } from 'react-redux'
-import {checkSong} from '../../store/player.redux';
-import { Toast } from 'antd-mobile'
-import Loading from '../../base/Loading';
+import React from "react";
+import "./index.css";
+import { loadSongList } from "../../store/songList.redux";
+import { connect } from "react-redux";
+import { checkSong } from "../../store/player.redux";
+import { Toast } from "antd-mobile";
+import Loading from "../../base/Loading";
 @connect(
   state => ({
     id: state.songList.id,
@@ -14,48 +14,52 @@ import Loading from '../../base/Loading';
     tags: state.songList.tags,
     songs: state.songList.songs,
     count: state.songList.count,
-    isCheck:state.player.isCheck
+    isCheck: state.player.isCheck
   }),
   {
-    loadSongList,checkSong
+    loadSongList,
+    checkSong
   }
 )
 class SongList extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      id:0,//准备要播放的歌曲ID
-    }
+      id: 0 //准备要播放的歌曲ID
+    };
   }
   componentDidMount() {
-    this.props.loadSongList(this.props.match.params.id)
+    this.props.loadSongList(this.props.match.params.id);
   }
-  componentWillReceiveProps(nextProps){
-    if(nextProps.isCheck.message!==''){
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.isCheck.message !== "") {
       //点击了某一首歌
-      if(nextProps.isCheck.success && this.state.id>0){
+      if (nextProps.isCheck.success && this.state.id > 0) {
         //去播放
         // this.props.history.push('/player/'+this.state.id);
-        this.props.history.push({pathname:'/player/'+this.state.id, state:{from:this.props.location.pathname}});
-      }else if(!nextProps.isCheck.success){
+        this.props.history.push({
+          pathname: "/player/" + this.state.id,
+          state: { from: this.props.location.pathname }
+        });
+      } else if (!nextProps.isCheck.success) {
         //提示
-        Toast.info(nextProps.isCheck.message,2);
+        Toast.info(nextProps.isCheck.message, 2);
       }
-    }else{
+    } else {
       //还没点击歌曲
     }
   }
-  check = (id) => {
+  check = id => {
     this.setState({
       id
-    })
+    });
     //根据歌曲ID，去验证是否有版权问题
-    this.props.checkSong(id)
-  }
+    this.props.checkSong(id);
+  };
   //播放第一首歌
   playFirst = () => {
     this.check(this.props.songs[0].id);
-  }
+  };
   render() {
     return (
       <div className="songList">
@@ -84,7 +88,10 @@ class SongList extends React.Component {
                 ))}
               </h3>
               <h3 className="song_time">更新时间: {this.props.updateTime}</h3>
-              <span className="iconfont icon-you song_play" onClick={this.playFirst}></span>
+              <span
+                className="iconfont icon-you song_play"
+                onClick={this.playFirst}
+              ></span>
             </div>
             <div className="songList">
               <p className="songList_num">
@@ -92,9 +99,10 @@ class SongList extends React.Component {
                 <span>共{this.props.count}首</span>
               </p>
               <ul>
-                {this.props.songs.length>0?this.props.songs.map((song, index) => {
-                  return (
-                    <li  key={song.id} onClick={()=>this.check(song.id)}>
+                {this.props.songs.length > 0 ? (
+                  this.props.songs.map((song, index) => {
+                    return (
+                      <li key={song.id} onClick={() => this.check(song.id)}>
                         <p className="songlist_index songlist_num3">
                           {index + 1}
                         </p>
@@ -108,15 +116,17 @@ class SongList extends React.Component {
                         </div>
                         <p className="iconfont icon-download songList_xiazai"></p>
                       </li>
-                  )
-                }):<Loading></Loading>
-                }
+                    );
+                  })
+                ) : (
+                  <Loading></Loading>
+                )}
               </ul>
             </div>
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
-export default SongList
+export default SongList;

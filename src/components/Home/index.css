@@ -14,7 +14,7 @@
   display: flex;
   padding: 0.6rem 0.4rem 0.4rem;
   box-sizing: border-box;
-  border-bottom: 1px solid #f4f4f4;
+  border-bottom: .013333rem /* 1/75 */ solid #f4f4f4;
   z-index: 100;
 }
 .headbox .p1 {
@@ -41,7 +41,7 @@ p {
   font-size: 0.4rem;
   height: 0.6rem;
   line-height: 0.6rem;
-  border: 1px solid #ccc;
+  border: .013333rem /* 1/75 */ solid #ccc;
   border-radius: 0.6rem;
   margin-top: 0.2rem;
 }
@@ -66,7 +66,7 @@ p {
   color: black;
 }
 .conBox .nav .select {
-  border-bottom: 2px solid #31c27c;
+  border-bottom: .026667rem /* 2/75 */ solid #31c27c;
   color: #31c27c;
 }
 .bottom {
